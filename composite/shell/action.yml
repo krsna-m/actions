@@ -10,12 +10,13 @@ inputs:
 runs:
   using: "composite"
   steps:
+    - run: echo ${{ inputs.changed_shell_files }}
+      shell: bash
     - uses: actions/checkout@v3
     - id: shellcheck_suggester
       uses: mathiasvr/command-output@v1
       with:
         run: |
-          echo ${{ inputs.changed_shell_files }}
           for sh_file in ${{ inputs.changed_shell_files }}; do
             shellcheck -f diff $sh_file | patch -p1
           done
