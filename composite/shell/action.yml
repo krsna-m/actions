@@ -15,7 +15,8 @@ runs:
       uses: mathiasvr/command-output@v1
       with:
         run: |
-          for sh_file in ${{ inputs.cahnged_shell_files }}; do
+          echo ${{ inputs.changed_shell_files }}
+          for sh_file in ${{ inputs.changed_shell_files }}; do
             shellcheck -f diff $sh_file | patch -p1
           done
         shell: bash
