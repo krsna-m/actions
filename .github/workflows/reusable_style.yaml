@@ -3,7 +3,9 @@ on:
   workflow_call:
     inputs:
       gofmt:
+        description: “Option to disable.”
         required: true
+        type: boolean
         default: true
 
 jobs:
