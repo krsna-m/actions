@@ -1,9 +1,13 @@
 name: Reusable style workflow
 on:
   workflow_call:
+    # Option to set to false to disable
     inputs:
       gofmt:
-        description: “Option to disable.”
+        required: false
+        type: boolean
+        default: true
+      shell:
         required: false
         type: boolean
         default: true
@@ -51,3 +55,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: kvmware/actions/composite/gofmt@main
+
+  shell:
+    needs: changes
+    if: ${{ (inputs.shell == true) &&  (needs.changes.outputs.shell == 'true') }}
+    name: "suggester / shell"
+    runs-on: ubuntu-latest
+    steps:
+      - uses: kvmware/actions/composite/shell@main
