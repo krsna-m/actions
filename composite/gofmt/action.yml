@@ -1,11 +1,5 @@
-name: "suggester/gofmt"
+name: "suggester / gofmt"
 description: "Uses reviewdog to suggest go format changes."
-
-# inputs:
-  # changed_go_files:
-    # description: “list of changed go files.”
-    # required: true
-    # default: ''
 
 runs:
   using: "composite"
