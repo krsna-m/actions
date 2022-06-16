@@ -1,2 +1,2 @@
 me="daba do"
-echo $me
+echo $me a
