@@ -2,5 +2,4 @@ on: [pull_request]
 
 jobs:
   job_name:
-    steps:
-    - uses: knative/actions/workflows/reusable-style.yml@main
+    - uses: kvmware/actions/workflows/reusable-style.yml@main
