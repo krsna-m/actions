@@ -1,0 +1,19 @@
+name: "suggester/gofmt"
+description: "Uses reviewdog to suggest go format changes."
+
+# inputs:
+  # changed_go_files:
+    # description: “list of changed go files.”
+    # required: true
+    # default: ''
+
+runs:
+  using: "composite"
+  steps:
+    - uses: actions/checkout@v3
+    - run: gofmt -w -s .
+      shell: bash
+    - uses: reviewdog/action-suggester@v1
+      with:
+        tool_name: gofmt
+        filter_mode: 'file'

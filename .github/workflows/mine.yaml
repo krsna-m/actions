@@ -1,0 +1,5 @@
+on: [pull_request]
+
+jobs:
+  job_name:
+    - uses: kvmware/actions/.github/workflows/reusable_style.yml@main
