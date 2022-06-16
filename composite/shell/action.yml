@@ -5,7 +5,6 @@ inputs:
   changed_shell_files:
     description: “list of changed shell files.”
     required: true
-    default: ''
 
 runs:
   using: "composite"
