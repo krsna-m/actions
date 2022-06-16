@@ -1,3 +1,9 @@
-coolio: 123
----
-noe: ''
+on: [pull_request]
+
+jobs:
+  style:
+    uses: kvmware/actions/.github/workflows/reusable_style.yaml@main
+    with:
+      yaml: false
+      gha_yaml_path_regex: '**/*.yaml'
+    ff: aa
