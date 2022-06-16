@@ -1,0 +1,6 @@
+on: [pull_request]
+
+jobs:
+  job_name:
+    steps:
+    - uses: knative/actions/workflows/reusable-style.yml@main
