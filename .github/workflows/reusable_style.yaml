@@ -11,6 +11,10 @@ on:
         required: false
         type: boolean
         default: true
+      yaml:
+        required: false
+        type: boolean
+        default: true
 
 jobs:
   # JOB to run change detection
@@ -65,3 +69,13 @@ jobs:
       - uses: kvmware/actions/composite/shell@main
         with: 
           changed_shell_files: ${{ needs.changes.outputs.shell_files }}
+
+  yaml:
+    needs: changes
+    if: ${{ (inputs.yaml == true) &&  (needs.changes.outputs.yaml == 'true') }}
+    name: "suggester / yaml"
+    runs-on: ubuntu-latest
+    steps:
+      - uses: kvmware/actions/composite/yaml@main
+        with: 
+          changed_yaml_files: ${{ needs.changes.outputs.yaml_files }}          
