@@ -47,7 +47,7 @@ jobs:
   gofmt:
     needs: changes
     if: ${{ (inputs.gofmt == true) &&  (needs.changes.outputs.golang == 'true') }}
-    name: "style/suggester/gofmt"
+    name: "suggester/gofmt"
     runs-on: ubuntu-latest
     steps:
-      - uses: knative/actions/gofmt@main
+      - uses: kvmware/actions/gofmt@main
