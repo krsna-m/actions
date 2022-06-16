@@ -18,7 +18,7 @@ on:
 
   workflow_call: {}
 
-job:
+jobs:
 
   test:
     name: Unit Tests
