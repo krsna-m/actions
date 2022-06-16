@@ -10,6 +10,8 @@ inputs:
 runs:
   using: "composite"
   steps:
+    - run: echo ${{ inputs.changed_shell_files }}
+      shell: bash
     - uses: actions/checkout@v3
     - id: shellcheck_suggester
       uses: mathiasvr/command-output@v1
