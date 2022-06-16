@@ -3,7 +3,6 @@ on:
   workflow_call:
     inputs:
       gofmt:
-        description: “Option to disable.”
         required: true
         default: true
 
