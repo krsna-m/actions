@@ -20,7 +20,7 @@ on:
 
 job:
 
-  tedst:
+  test:
     name: Unit Tests
     # Please don't use matrixes. This particular test is tracked in prow's branchprotector
     runs-on: ubuntu-latest
