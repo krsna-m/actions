@@ -4,7 +4,7 @@ on:
     inputs:
       gofmt:
         description: “Option to disable.”
-        required: true
+        required: false
         type: boolean
         default: true
 
