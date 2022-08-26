@@ -15,10 +15,9 @@ jobs:
     - id: config
       run: |
         echo "::set-output name=use-style::$(yq '.use-style' config.yaml 2>>/dev/null|| echo true)"
-        echo "::set-output name=use-style::$(yq '.use-style' config.yaml 2>>/dev/null|| echo true)"
+        echo "::set-output name=use-blah::$(yq '.use-blah' config.yaml 2>>/dev/null|| echo true)"
 
   style:
       needs: read_config
-      run: echo ${{needs.read_config.outputs.use-style}}
-      if: ${{needs.read_config.outputs.use-style == 'true'}}
+      if: ${{needs.read_config.outputs.use-blah == 'true'}}
       uses: knative/actions/.github/workflows/style.yaml@main
