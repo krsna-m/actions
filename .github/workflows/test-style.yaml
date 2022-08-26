@@ -19,5 +19,6 @@ jobs:
 
   style:
       needs: read_config
-      if: ${{needs.read_config.outputs.use-style == true}}
+      run: echo ${{needs.read_config.outputs.use-style}}
+      if: ${{needs.read_config.outputs.use-style == 'true'}}
       uses: knative/actions/.github/workflows/style.yaml@main
