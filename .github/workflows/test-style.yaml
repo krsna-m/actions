@@ -5,6 +5,19 @@ on:
     branches: [ 'main', 'release-*' ]
 
 jobs:
-  # if: github.repository == 'kvmware/actions'
+  read_config:
+    runs-on: ubuntu-latest
+    outputs:
+      use-style: ${{ steps.config.outputs.use-style }}
+      use-blah: ${{ steps.config.outputs.use-blah }}
+    steps:
+    - uses: actions/checkout@v3
+    - id: config
+      run: |
+        echo "::set-output name=use-style::$(yq '.use-style' config.yaml 2>>/dev/null|| echo true)"
+        echo "::set-output name=use-style::$(yq '.use-style' config.yaml 2>>/dev/null|| echo true)"
+
   style:
-    uses: knative/actions/.github/workflows/style.yaml@main
+      needs: read_config
+      if: ${{needs.read_config.outputs.use-style == true}}
+      uses: knative/actions/.github/workflows/style.yaml@main
