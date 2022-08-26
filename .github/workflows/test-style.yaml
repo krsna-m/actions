@@ -14,8 +14,8 @@ jobs:
     - uses: actions/checkout@v3
     - id: config
       run: |
-        echo "::set-output name=use-style::$(yq '.use-style' config.yaml 2>>/dev/null|| echo true)"
-        echo "::set-output name=use-blah::$(yq '.use-blah' config.yaml 2>>/dev/null|| echo true)"
+        echo "::set-output name=use-style::$(yq '.use-style' .github/workflows/config.yaml 2>>/dev/null|| echo true)"
+        echo "::set-output name=use-blah::$(yq '.use-blah' .github/workflows/config.yaml 2>>/dev/null|| echo true)"
 
   style:
       needs: read_config
