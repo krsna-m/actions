@@ -1,0 +1,2 @@
+kvmware/test-infra:
+  - .github/workflows/reusable_style.yaml
