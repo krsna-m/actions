@@ -1,0 +1,8 @@
+use-releasability: true
+use-release-notes: true
+use-go-build: true
+use-go-test: true
+use-verify-codegen: true
+use-security: true
+use-style: true
+use-stale: true
