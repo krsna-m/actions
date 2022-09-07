@@ -1,0 +1,70 @@
+# !!! DO NOT EDIT. CHANGES WILL BE OVERWRITTEN. !!!
+# THIS IS A SYNCED FILE FROM:
+# https://github.com/knative/actions/blob/main/resuables.yaml, EDIT THAT FILE INSTEAD.
+# THE CONFIGURATION FILE CAN BE FOUND IN YOUR LOCAL REPO AT:
+# .github/workflows/reusables-config.yaml
+
+jobs:
+  read_config:
+    runs-on: ubuntu-latest
+    outputs:
+      use-releasability: ${{ steps.config.outputs.use-releasability }}
+      use-release-notes: ${{ steps.config.outputs.use-release-notes }}
+      use-go-build: ${{ steps.config.outputs.use-go-build }}
+      use-go-test: ${{ steps.config.outputs.use-go-test }}
+      use-verify-codegen: ${{ steps.config.outputs.use-verify-codegen }}
+      use-security: ${{ steps.config.outputs.use-security }}
+      use-style: ${{ steps.config.outputs.use-style }}
+      use-stale: ${{ steps.config.outputs.use-stale }}
+    steps:
+    - uses: actions/checkout@v3
+    - id: config
+      run: |
+        echo "::set-output name=use-releasability::$(yq '.use-releasability' .github/workflows/reusables-config.yaml 2>>/dev/null|| echo true)"
+        echo "::set-output name=use-release-notes::$(yq '.use-release-notes' .github/workflows/reusables-config.yaml 2>>/dev/null|| echo true)"
+        echo "::set-output name=use-go-build::$(yq '.use-go-build' .github/workflows/reusables-config.yaml 2>>/dev/null|| echo true)"
+        echo "::set-output name=use-go-test::$(yq '.use-go-test' .github/workflows/reusables-config.yaml 2>>/dev/null|| echo true)"
+        echo "::set-output name=use-verify-codegen::$(yq '.use-verify-codegen' .github/workflows/reusables-config.yaml 2>>/dev/null|| echo true)"
+        echo "::set-output name=use-security::$(yq '.use-security' .github/workflows/reusables-config.yaml 2>>/dev/null|| echo true)"
+        echo "::set-output name=use-style::$(yq '.use-style' .github/workflows/reusables-config.yaml 2>>/dev/null|| echo true)"
+        echo "::set-output name=use-stale::$(yq '.use-stale' .github/workflows/reusables-config.yaml 2>>/dev/null|| echo true)"
+
+  releasability:
+      needs: read_config
+      if: ${{needs.read_config.outputs.use-releasability == 'true'}}
+      uses: knative/actions/.github/workflows/reusable-releasability.yaml@main
+
+  release-notes:
+      needs: read_config
+      if: ${{needs.read_config.outputs.use-release-notes == 'true'}}
+      uses: knative/actions/.github/workflows/reusable-release-notes.yaml@main
+
+  go-build:
+      needs: read_config
+      if: ${{needs.read_config.outputs.use-go-build == 'true'}}
+      uses: knative/actions/.github/workflows/reusable-go-build.yaml@main
+
+  go-test:
+      needs: read_config
+      if: ${{needs.read_config.outputs.use-go-test == 'true'}}
+      uses: knative/actions/.github/workflows/reusable-go-test.yaml@main
+
+  verify-codegen:
+      needs: read_config
+      if: ${{needs.read_config.outputs.use-verify-codegen == 'true'}}
+      uses: knative/actions/.github/workflows/reusable-verify-codegen.yaml@main
+
+  security:
+      needs: read_config
+      if: ${{needs.read_config.outputs.use-security == 'true'}}
+      uses: knative/actions/.github/workflows/reusable-security.yaml@main
+
+  style:
+      needs: read_config
+      if: ${{needs.read_config.outputs.use-style == 'true'}}
+      uses: knative/actions/.github/workflows/reusable-style.yaml@main
+
+  stale:
+      needs: read_config
+      if: ${{needs.read_config.outputs.use-stale == 'true'}}
+      uses: knative/actions/.github/workflows/reusable-stale.yaml@main
