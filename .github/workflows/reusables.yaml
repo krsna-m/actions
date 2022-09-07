@@ -3,6 +3,11 @@
 # https://github.com/knative/actions/blob/main/resuables.yaml, EDIT THAT FILE INSTEAD.
 # THE CONFIGURATION FILE CAN BE FOUND IN YOUR LOCAL REPO AT:
 # .github/reusables-config.yaml
+name: Reusables
+on:
+  pull_request:
+    branches:
+      - main
 
 jobs:
   read_config:
