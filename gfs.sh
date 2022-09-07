@@ -1,3 +1,2 @@
-shdf
-cats
-d
+cat "SDF"
+fd ? wat
