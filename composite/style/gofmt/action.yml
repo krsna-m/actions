@@ -12,7 +12,7 @@ runs:
 #         tool_name: gofmt
 #         filter_mode: 'file'
 
-  autoformat:
+#   autoformat:
     strategy:
       fail-fast: false # Keep running if one leg fails.
       matrix:
@@ -70,7 +70,7 @@ runs:
           fi
           echo "${{ github.repository }} is formatted correctly."
 
-  lint:
+#   lint:
     name: Lint
     steps:
       - name: Set up Go
@@ -247,7 +247,7 @@ runs:
                 -level="error"
           echo '::endgroup::'
 
-  donotsubmit:
+#   donotsubmit:
     name: Do Not Submit
     steps:
       - name: Check out code
@@ -286,7 +286,7 @@ runs:
 
           echo '::endgroup::'
 
-  check:
+#   check:
     name: Boilerplate Check
     strategy:
       fail-fast: false # Keep running if one leg fails.
