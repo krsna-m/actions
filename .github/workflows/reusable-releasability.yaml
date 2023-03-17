@@ -28,7 +28,7 @@ on:
         required: true
     secrets:
       SLACK_WEBHOOK:
-        required: true
+        required: false
 
 jobs:
   releasability:
