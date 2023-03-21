@@ -117,7 +117,7 @@ func (b *Builder) Build(ctx context.Context, f fn.Function) (err error) {
 	if b.platform != "" {
 		builderImage, err = docker.GetPlatformImage(builderImage, b.platform)
 		if err != nil {
-			return fmt.Errorf("cannot get platform specific image reference: %w", err)
+			return fmt.Errorf("cannot ge t platform specific image reference: %w", err)
 		}
 	}
 
