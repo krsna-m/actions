@@ -11,8 +11,6 @@ runs:
   steps:
     - uses: actions/checkout@v3
     - uses: actions/setup-python@4
-      with:
-        cache: 'pip'
     - run: pip install yamlfixer-opt-nc
       shell: bash
     - run: yamlfixer ${{ inputs.changed_yaml_files }}
