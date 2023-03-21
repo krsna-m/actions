@@ -11,6 +11,8 @@ runs:
   steps:
     - uses: actions/checkout@v3
     - uses: actions/setup-python@v4
+      with:
+        cache: "pip"
     - run: pip3 install yamlfixer-opt-nc
       shell: bash
     - run: yamlfixer ${{ inputs.changed_yaml_files }}
@@ -23,6 +25,4 @@ runs:
 
     - uses: reviewdog/action-yamllint@v1
       with:
-        #github_token: ${{ secrets.github_token }}
-        yamllint_flags: '${{ inputs.changed_yaml_files }}'
         filter_mode: 'file'
