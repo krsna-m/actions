@@ -10,7 +10,6 @@ runs:
   using: "composite"
   steps:
     - uses: actions/checkout@v3
-    - uses: actions/setup-python@4
     - run: pip3 install yamlfixer-opt-nc
     - run: yamlfixer ${{ inputs.changed_yaml_files }}
       shell: bash
