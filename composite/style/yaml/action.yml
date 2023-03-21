@@ -10,7 +10,6 @@ runs:
   using: "composite"
   steps:
      - uses: actions/checkout@v3
-        name: yamllint-reveiwdoo
         uses: reviewdog/action-yamllint@v1
         with:
           github_token: ${{ secrets.github_token }}
