@@ -1,7 +1,7 @@
 presubmits:
   knative/community:
   - name: pull-knativeteam-groups-test
-    decorate: true
+      decorate: true
     run_if_changed: "^groups/"
     branches:
     - ^main$
