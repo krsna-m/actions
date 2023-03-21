@@ -4,22 +4,22 @@ presubmits:
       decorate: true
       run_if_changed: "^groups/"
       branches:
-        - "^main$"
-          cluster: prow-trusted
-          spec:
-            containers:
-            # yamllint disable-line rule:line-length
-            - image: gcr.io/knative-tests/test-infra/prow-tests:v20230317-5d06f773
-              command:
-                - runner.sh
-              args:
-                - make
-                - -C
-                - ./groups
-                - test
-              env:
-                - name: GO111MODULE
-                  value: "on"
+        - ^main$
+      cluster: prow-trusted
+      spec:
+        containers:
+          # yamllint disable-line rule:line-length
+          - image: gcr.io/knative-tests/test-infra/prow-tests:v20230317-5d06f773
+            command:
+              - runner.sh
+            args:
+              - make
+              - -C
+              - ./groups
+              - test
+            env:
+              - name: GO111MODULE
+                value: "on"
 
 periodics:
   - cron: "0 */6 * * *" # Every 6 hours
@@ -32,8 +32,8 @@ periodics:
         repo: community
         base_ref: main
     annotations:
-        testgrid-dashboards: utilities
-        testgrid-tab-name: ci-knativeteam-groups-jobs
+      testgrid-dashboards: utilities
+      testgrid-tab-name: ci-knativeteam-groups-jobs
     rerun_auth_config:
       github_team_slugs:
         - org: knative
@@ -41,6 +41,7 @@ periodics:
     spec:
       serviceAccountName: gsuite-groups-manager
       containers:
+        # yamllint disable-line rule:line-length
         - image: gcr.io/knative-tests/test-infra/prow-tests:v20230317-5d06f773
           command:
             - runner.sh
@@ -73,17 +74,20 @@ postsubmits:
           channel: productivity
           job_states_to_report:
             - failure
-          report_template: '"The knativeteam-groups sync postsubmit job fails, check the log: <{{.Status.URL}}|View logs>"'
+          report_template: '"The knativeteam-groups
+           sync postsubmit job fails, check the log:
+           <{{.Status.URL}}|View logs>"'
       spec:
         serviceAccountName: gsuite-groups-manager
         containers:
+          # yamllint disable-line rule:line-length
           - image: gcr.io/knative-tests/test-infra/prow-tests:v20230317-5d06f773
             command:
               - runner.sh
-          args:
-            - make
-            - -C
-            - groups
-            - run
-            - --
-            - --confirm
+            args:
+              - make
+              - -C
+              - groups
+              - run
+              - --
+              - --confirm
