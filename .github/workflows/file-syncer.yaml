@@ -17,3 +17,6 @@ jobs:
           GIT_EMAIL: "automation@knative.team"
           GIT_USERNAME: "Knative Automation"
           GH_PAT: ${{ secrets.GH_PAT_FILE_SYNCER }}
+
+
+

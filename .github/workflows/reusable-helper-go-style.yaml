@@ -68,7 +68,7 @@ jobs:
           # This is to leverage this workaround:
           # https://github.com/actions/toolkit/issues/193#issuecomment-605394935
           function urlencode() {
-            sed ':begin;$!N;s/\n/%0A/;tbegin'
+            sed ':begin;$!N;s//%0A/;tbegin'
           }
           if [[ $(git diff-index --name-only HEAD --) ]]; then
               for x in $(git diff-index --name-only HEAD --); do
@@ -369,3 +369,4 @@ jobs:
                 -fail-on-error="true" \
                 -level="error"
           echo '::endgroup::'
+

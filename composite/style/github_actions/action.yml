@@ -14,3 +14,4 @@ runs:
       with:
         actionlint_flags: --shellcheck= ${{ inputs.changed_gha_yaml_files }}
         filter_mode: 'file'
+

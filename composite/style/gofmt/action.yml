@@ -11,3 +11,4 @@ runs:
       with:
         tool_name: gofmt
         filter_mode: 'file'
+

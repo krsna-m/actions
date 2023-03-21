@@ -148,3 +148,4 @@ jobs:
           # so that the status badge shows up red and we can use the badges to create a
           # releasability dashboard for all of the repos.
           exit 1
+

@@ -71,3 +71,4 @@ jobs:
       uses: pierdipi/unicode-control-characters-action@release-0.1
       with:
         args: --detailed --config .unicode-control-characters.config.py .
+

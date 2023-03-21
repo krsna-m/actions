@@ -30,3 +30,4 @@ jobs:
       slackChannel: ${{ github.event.inputs.slackChannel || 'release' }}
     secrets:
       SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
+

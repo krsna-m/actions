@@ -27,3 +27,4 @@ runs:
           --no-warnings
           ${{ inputs.changed_yaml_files }}
         filter_mode: 'file'
+

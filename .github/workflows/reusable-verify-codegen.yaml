@@ -49,7 +49,7 @@ jobs:
         # This is to leverage this workaround:
         # https://github.com/actions/toolkit/issues/193#issuecomment-605394935
         function urlencode() {
-          sed ':begin;$!N;s/\n/%0A/;tbegin'
+          sed ':begin;$!N;s//%0A/;tbegin'
         }
 
         if [[ -z "$(git status --porcelain)" ]]; then
@@ -64,3 +64,4 @@ jobs:
             echo "${{ github.repository }} is out of date. Please run hack/update-codegen.sh"
             exit 1
         fi
+

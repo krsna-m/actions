@@ -54,3 +54,4 @@ runs:
         # Exclude third_party from tests since it can contain
         # invalid internal package references.
         go test -race $(go list ./... | grep -v third_party)
+
