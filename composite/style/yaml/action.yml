@@ -25,5 +25,4 @@ runs:
 
     - uses: reviewdog/action-yamllint@v1
       with:
-        yamllint_flags: '${{ inputs.changed_yaml_files }}'
         filter_mode: 'file'
