@@ -9,9 +9,11 @@ inputs:
 runs:
   using: "composite"
   steps:
+    steps:
     - uses: actions/checkout@v3
-    - uses: actions/setup-python@4
+    - uses: actions/setup-python@v4
       with:
+        python-version: '3.10'
         cache: 'pip'
     - run: pip3 install yamlfixer-opt-nc
       shell: bash
