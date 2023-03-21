@@ -25,5 +25,5 @@ runs:
 
     - uses: reviewdog/action-yamllint@v1
       with:
-        yamllint_flags: -f github '${{ inputs.changed_yaml_files }}'
+        yamllint_flags: '-f github ${{ inputs.changed_yaml_files }}'
         filter_mode: 'file'
