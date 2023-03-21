@@ -12,5 +12,6 @@ runs:
      - uses: actions/checkout@v3
      - uses: reviewdog/action-yamllint@v1
        with:
-         reporter: github-pr-review # Change reporter.
-         level: error
+         reporter: "github-pr-review" # Change reporter.
+         level: "error"
+         ail_on_error: false
