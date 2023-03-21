@@ -3,7 +3,7 @@ description: "Uses reviewdog to suggest yaml format changes."
 
 inputs:
   changed_yaml_files:
-    description: “list of changed yaml files. loooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong”
+    description: “list of changed yaml files. looooooooooooggggggoooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong”
     required: true
 
 runs:
