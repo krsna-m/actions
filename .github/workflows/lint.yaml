@@ -9,4 +9,4 @@ jobs:
   style:
     uses: kvmware/actions/.github/workflows/reusable-style.yaml@main
     with:
-      yaml: false
+      yaml: true
