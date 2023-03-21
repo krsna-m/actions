@@ -22,7 +22,7 @@ presubmits:
                 value: "on"
 
 periodics:
-  - cron: "0 */6 * * *" # Every 6 hours
+  - cron: "0 */6 * * *"  # Every 6 hours
     name: ci-knativeteam-groups
     cluster: prow-trusted
     decorate: true
