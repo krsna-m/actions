@@ -12,5 +12,4 @@ runs:
      - uses: actions/checkout@v3
      - uses: reviewdog/action-yamllint@v1
        with:
-         github_token: ${{ secrets.github_token }}
          reporter: github-pr-review # Change reporter.
