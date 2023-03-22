@@ -25,7 +25,7 @@ runs:
     - name: suggester / shellcheck
       uses: reviewdog/action-suggester@v1
       with:
-        tool_name: shellcheck
+      tool_name: shellcheck
         filter_mode: 'file'
 
     - uses: reviewdog/action-shfmt@v1
