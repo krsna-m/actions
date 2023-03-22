@@ -70,9 +70,9 @@ jobs:
     if: ${{ (inputs.go_style == true) && (needs.changes.outputs.golang == 'true') }}
     name: "Golang"
     # TODO: This should be broken down into composites like the rest
-    uses: knative/actions/.github/workflows/reusable-helper-go-style.yaml@main
-#     with:
-#       changed_golang_files: ${{ needs.changes.outputs.golang_files }}
+    uses: kvmware/actions/.github/workflows/reusable-helper-go-style.yaml@GOLANG_LINT_FILES
+    with:
+      changed_golang_files: ${{ needs.changes.outputs.golang_files }}
 
   shell:
     needs: changes
