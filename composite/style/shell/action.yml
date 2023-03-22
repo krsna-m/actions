@@ -37,4 +37,3 @@ runs:
       uses: reviewdog/action-shellcheck@v1
       with:
         filter_mode: 'file'
-
