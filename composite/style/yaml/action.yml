@@ -8,9 +8,9 @@ inputs:
 
 runs:
   using: "composite"
-  env:
-    YAMLLINT_RULES: "{extends: default, rules: {line-length: disable}}"
   steps:
+    - env:
+        YAMLLINT_RULES: "{extends: default, rules: {line-length: disable}}"
     - uses: actions/checkout@v3
     - run: pip install yamlfixer-opt-nc
       shell: bash

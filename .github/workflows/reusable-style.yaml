@@ -52,14 +52,18 @@ jobs:
         filters: |
           golang:
             - '**.go'
+            - '!vendor/*'
           shell:
             - '**.sh'
+            - '!vendor/**'
           markdown:
             - '**.md'
             - '**.MD'
+            - '!vendor/*'
           yaml:
             - '!(.github/workflows/**)**.yaml'
             - '!(.github/workflows/**)**.yml'
+            - '!vendor/*'
           gha_yaml:
             - '${{ inputs.gha_yaml_path_regex }}'
 
