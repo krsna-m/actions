@@ -55,7 +55,7 @@ jobs:
             - '!vendor/*'
           shell:
             - '**.sh'
-            - '!vendor/*'
+            - '!vendor/**'
           markdown:
             - '**.md'
             - '**.MD'
@@ -91,7 +91,7 @@ jobs:
     name: "suggester / yaml"
     runs-on: ubuntu-latest
     steps:
-      - uses: kvmware/actions/composite/style/yaml@main
+      - uses: kvmware/actions/composite/style/yaml@p1
         with:
           changed_yaml_files: ${{ needs.changes.outputs.yaml_files }}
 
